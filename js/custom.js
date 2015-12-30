@@ -306,6 +306,7 @@ $(function () {
 
 /** ******  Accordion  *********************** **/
 /** ******  scrollview  *********************** **/
+/*
 $(document).ready(function () {
   
             $(".scroll-view").niceScroll({
@@ -313,5 +314,5 @@ $(document).ready(function () {
                 cursorcolor: "rgba(42, 63, 84, 0.35)"
             });
 
-});
+});*/
 /** ******  /scrollview  *********************** **/
