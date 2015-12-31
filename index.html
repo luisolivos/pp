@@ -160,18 +160,45 @@
                                     </div>
 
                                     <div class="x_content">
-                                        <label for="textinput-f">Artículo:</label>           
-                                        <div id="FilaGrid" class="ui-grid-b">
-                                            <div id="CeldaCode" class="ui-block-a">
-                                               <div class="input-group">
-                                                    <input type="text" class="form-control">
-                                                    <span class="input-group-btn">
-                                                        <button type="button" class="btn btn-primary" id = "btnBisqArt">Go!</button> 
-                                                        <button type="button" class="btn btn-primary" id = "btnLimpArt">Go!</button> 
-                                                    </span>
-                                                </div>
-                                            </div>
+                                        <label for="textinput-f">Artículo:</label>   
+
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder = "Código de árticulo">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-primary" id = "btnBisqArt">
+                                                    <i class="fa fa-search"></i> Ir
+                                                </button> 
+                                                <button type="button" class="btn btn-primary" id = "btnLimpArt">
+                                                    <i class="fa fa-trash-o"></i> Limpiar
+                                                </button> 
+                                            </span>
                                         </div>
+
+                                        <label>
+                                            <input type="radio" checked="checked" value="V1" id="rbtPesos" name="R1"> Pesos
+                                        </label>
+
+                                        <label>
+                                            <input type="radio" checked="" value="V1" id="rbtDolares" name="R1"> Dólares
+                                        </label>
+                                        <br/>
+
+                                        <label for="textinput-f">Precio ($):</label>   
+                                        <div class="input-group">
+                                            <input type="text" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-primary" id = "btnBisqArt">Utilidad</button> 
+                                            </span>
+                                        </div>
+
+                                        <label for="textinput-f">Utilidad (%):</label>   
+                                        <div class="input-group">
+                                            <input type="text" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-primary" id = "btnBisqArt">Precio</button> 
+                                            </span>
+                                        </div>            
+                                      
                                     </div>
                                 </div>  
                             
