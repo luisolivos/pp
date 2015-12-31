@@ -1,16 +1,14 @@
-
 <html>
-
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
+    <meta  charset="UTF-8">
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">-->
 
     <title>Halconet</title>
 
     <!-- Bootstrap core CSS -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -22,12 +20,9 @@
     <link rel="stylesheet" type="text/css" href="css/maps/jquery-jvectormap-2.0.1.css" />
     <!--<link href="css/icheck/flat/green.css" rel="stylesheet" />
     <link href="css/floatexamples.css" rel="stylesheet" type="text/css" />-->
-
-    <script src="js/jquery.min.js"></script>
     <!--<script src="js/nprogress.js"></script>-->
- 
+    <script type="text/javascript" src="phonegap.js"></script>
 </head>
-
 
 <body class="nav-md">
     <div class="container body">
@@ -163,9 +158,9 @@
                                         <label for="textinput-f">Artículo:</label>   
 
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder = "Código de árticulo">
+                                            <input type="text" class="form-control" placeholder = "Código de árticulo" id = "txtItemCode">
                                             <span class="input-group-btn">
-                                                <button type="button" class="btn btn-primary" id = "btnBisqArt">
+                                                <button type="button" class="btn btn-primary" id = "btnBusqArt">
                                                     <i class="fa fa-search"></i> Ir
                                                 </button> 
                                                 <button type="button" class="btn btn-primary" id = "btnLimpArt">
@@ -214,8 +209,8 @@
      </div>
 
     <script src="js/bootstrap.min.js"></script>
-    <!-- gauge js -->
-    <script type="text/javascript" src="js/gauge/gauge.min.js"></script>
+    <!-- gauge js-->
+    <script type="text/javascript" src="js/gauge/gauge.min.js"></script> 
     <script type="text/javascript" src="js/gauge/gauge_demo.js"></script>
     <!-- chart js 
     <script src="js/chartjs/chart.min.js"></script>-->
@@ -231,7 +226,6 @@
 
     <script src="js/custom.js"></script>
     <script src="js/actions.js"></script>
-    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
 
     <!-- skycons 
     <script src="js/skycons/skycons.js"></script>-->

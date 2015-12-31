@@ -1,0 +1,62 @@
+                                <head>
+                                    <meta  charset="UTF-8">
+                                    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">
+                                    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+                                    <title>Halconet</title>
+
+                                    <script type="text/javascript" src="js/jquery.min.js"></script>
+                                    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+
+                                    <script type="text/javascript" src="phonegap.js"></script>
+                                    <script src="js/actions.js"></script>
+                                </head>
+
+                                <div class="x_panel">
+                                    <div class = "x_title">
+                                        <h2>Cálculo de utilidad</h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="x_content">
+                                        <label for="textinput-f">Artículo:</label>   
+
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder = "Código de árticulo" id = "txtItemCode">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-primary" id = "btnBusqArt">
+                                                    <i class="fa fa-search"></i> Ir
+                                                </button> 
+                                                <button type="button" class="btn btn-primary" id = "btnLimpArt">
+                                                    <i class="fa fa-trash-o"></i> Limpiar
+                                                </button> 
+                                            </span>
+                                        </div>
+
+                                        <label>
+                                            <input type="radio" checked="checked" value="V1" id="rbtPesos" name="R1"> Pesos
+                                        </label>
+
+                                        <label>
+                                            <input type="radio" checked="" value="V1" id="rbtDolares" name="R1"> Dólares
+                                        </label>
+                                        <br/>
+
+                                        <label for="textinput-f">Precio ($):</label>   
+                                        <div class="input-group">
+                                            <input type="text" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-primary" id = "btnBisqArt">Utilidad</button> 
+                                            </span>
+                                        </div>
+
+                                        <label for="textinput-f">Utilidad (%):</label>   
+                                        <div class="input-group">
+                                            <input type="text" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-primary" id = "btnBisqArt">Precio</button> 
+                                            </span>
+                                        </div>            
+                                      
+                                    </div>
+                                </div>
