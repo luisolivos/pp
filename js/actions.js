@@ -49,6 +49,7 @@ function VerificaDescripcionArticulo(Codigo) {
             contentType: "application/json",
             success: function (response) {
                 result = response.d;
+                alert(result);
                 if (result != "") {                    
                    // $('#idInformacion').css('display', 'block');
                    // $("#sDescripcionArticulo").text(result);
