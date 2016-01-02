@@ -49,10 +49,9 @@ function VerificaDescripcionArticulo(Codigo) {
             contentType: "application/json",
             success: function (response) {
                 result = response.d;
-                alert(result);
+
                 if (result != "") {                    
-                   // $('#idInformacion').css('display', 'block');
-                   // $("#sDescripcionArticulo").text(result);
+                   $("#lblItemName1").text(result);
                    // ConsultaListaPrecios(Codigo, 3, 0);
                    // ConsultaStock(Codigo, 5, 0);
                     if (Publi == 1) {
