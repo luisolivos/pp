@@ -43,10 +43,11 @@ $(document).ready(function () {
 
         if (CodORNom != "") {
             var mon = $("#txtPrecio").val();
-            if (mon != "") {
+            if (mon != "" || mon != undefined) {
                 var code = CodORNom;
                 var TipoMoneda = -1;
                 var TipoConsulta = -1;
+                
                 if ($('#rbtPesos').is(':checked')) {
                     TipoMoneda = 1;
                     TipoConsulta = 1;
@@ -57,6 +58,8 @@ $(document).ready(function () {
                 }
 
                 if (mon != "") {
+                    
+                    alert ("TipoConsulta " + TipoConsulta + " Art " + code + " Moneda " + TipoMoneda + "Monto" + mon);
                     if (Publi == 1) {
                         $.mobile.loading('show', {
                             text: 'Calculando...',
@@ -78,7 +81,8 @@ $(document).ready(function () {
                                 if (Publi == 1) {
                                     $.mobile.loading('hide');
                                 }
-                            }
+                            },
+                            error:function (response){ alert ("Error: "+response.error);}
                         });
                      }
                 }
