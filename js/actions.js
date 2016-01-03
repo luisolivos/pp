@@ -58,8 +58,7 @@ $(document).ready(function () {
                 }
 
                 if (mon != "") {
-                    
-                    alert ("TipoConsulta " + TipoConsulta + " Art " + code + " Moneda " + TipoMoneda + "Monto" + mon);
+                    //alert ("TipoConsulta " + TipoConsulta + " Art " + code + " Moneda " + TipoMoneda + "Monto" + mon);
                     if (Publi == 1) {
                         $.mobile.loading('show', {
                             text: 'Calculando...',
@@ -96,15 +95,55 @@ $(document).ready(function () {
     });
     
     $("#btnGetPrecio").bind("click", function (event, ui) {
-        var Codigo = $("#txtItemCode").val();
-        alert("Precio");
-        if (Publi == 1) {
-            $.mobile.loading('show', {
-                text: 'Calculando...',
-                textVisible: true,
-                theme: 'a',
-                html: ""
-            });
+        var CodORNom = "";
+        CodORNom = $("#txtItemCode").val();
+        
+        if (CodORNom != "") {
+            var mon = $("#txtUtilidad").val();
+            if (mon != "") {
+                var code = $("#txtItemCode").val();
+                var TipoMoneda = -1;
+                var TipoConsulta = -1;
+                if ($('#rbtPesos').is(':checked')) {
+                    TipoMoneda = 1;
+                    TipoConsulta = 1;
+                }
+                if ($('#rbtDolares').is(':checked')) {
+                    TipoMoneda = 2;
+                    TipoConsulta = 2;
+                }
+                if (mon != "") {
+                    if (Publi == 1) {
+                        $.mobile.loading('show', {
+                            text: 'Calculando...',
+                            textVisible: true,
+                            theme: 'a',
+                            html: ""
+                        });
+                    }
+                    //Calcular utilidad
+                    $.ajax({
+                        url: urlDOM + "CS.aspx/CalculaUtilidadPorciento",
+                        data: "{ TipoConsulta: " + TipoConsulta + ", DescripArticulo: '" + code + "'" + ", TipoMoneda: " + TipoMoneda + ", Monto: '" + mon + "'" + ", BDescripcion:" + 0 + "}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (data) {
+                            $("#txtPrecio").val(data.d);
+                            if (Publi == 1) {
+                                $.mobile.loading('hide');
+                            }
+                        }
+                    });
+                }
+            }
+            else {
+                Mensaje("Especifique porcentaje para la utilidad", "HalcoNET", "Aceptar");
+            }
+        }
+        else {
+            Mensaje("Debe ingresar un código de artículo", "HalcoNET", "Aceptar");
         }
     });
 });
@@ -120,11 +159,8 @@ function VerificaDescripcionArticulo(Codigo) {
             contentType: "application/json",
             success: function (response) {
                 result = response.d;
-
                 if (result != "") {                    
                    $("#lblItemName1").text(result);
-                   // ConsultaListaPrecios(Codigo, 3, 0);
-                   // ConsultaStock(Codigo, 5, 0);
                     if (Publi == 1) {
                         $.mobile.loading("hide");
                     }
