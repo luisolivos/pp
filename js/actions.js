@@ -38,15 +38,58 @@ $(document).ready(function () {
     });
     
     $("#btnGetUtilidad").bind("click", function (event, ui) {
-        var Codigo = $("#txtItemCode").val();
-        alert("Utilidad");
-        if (Publi == 1) {
-            $.mobile.loading('show', {
-                text: 'Consultando...',
-                textVisible: true,
-                theme: 'a',
-                html: ""
-            });
+        var CodORNom = "";
+        CodORNom = $("#txtItemCode").val();
+
+        if (CodORNom != "") {
+            var mon = $("#txtPrecio").val();
+            if (mon != "") {
+                var code = CodORNom;
+                var TipoMoneda = -1;
+                var TipoConsulta = -1;
+                if ($('#rbtPesos').is(':checked')) {
+                    TipoMoneda = 1;
+                    TipoConsulta = 1;
+                }
+                if ($('#rbtDolares').is(':checked')) {
+                    TipoMoneda = 2;
+                    TipoConsulta = 2;
+                }
+
+                if (mon != "") {
+                    if (Publi == 1) {
+                        $.mobile.loading('show', {
+                            text: 'Calculando...',
+                            textVisible: true,
+                            theme: 'a',
+                            html: ""
+                        });
+                   
+                        //Obtener utilidad
+                        $.ajax({
+                            url: urlDOM + "CS.aspx/CalculaUtilidadPrecio",
+                            data: "{ TipoConsulta: " + TipoConsulta + ", CodArticulo: '" + code + "'" + ", TipoMoneda: " + TipoMoneda + ", Monto: '" + mon + "'}",
+                            dataType: "json",
+                            type: "POST",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function (data) {
+                                $("#txtUtilidad").val(data.d);
+                                if (Publi == 1) {
+                                    $.mobile.loading('hide');
+                                }
+                            }
+                        });
+                     }
+                }
+            }
+            else {
+                Mensaje("Debe especificar un monto", "HalcoNET", "Aceptar");
+            }
+
+        }
+        else {
+            Mensaje("Ingrese un código de artículo", "HalcoNET", "Aceptar");
         }
     });
     
@@ -55,7 +98,7 @@ $(document).ready(function () {
         alert("Precio");
         if (Publi == 1) {
             $.mobile.loading('show', {
-                text: 'Consultando...',
+                text: 'Calculando...',
                 textVisible: true,
                 theme: 'a',
                 html: ""
