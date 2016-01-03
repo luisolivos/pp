@@ -6,7 +6,7 @@ $(document).ready(function () {
   $('#content_ventas').css('display', 'none');
   $('#idCalculoUtilidad').css('display', 'none');
 		
-	$("#id_mVentas").bind("click", function (event, ui) {
+    $("#id_mVentas").bind("click", function (event, ui) {
           $('#content_ventas').css('display', 'block');
           $('#content_cyc').css('display', 'none');
           $('#idCalculoUtilidad').css('display', 'none');
@@ -18,13 +18,13 @@ $(document).ready(function () {
           $('#idCalculoUtilidad').css('display', 'none');
     	});
 
-  $("#idVentas1").bind("click", function (event, ui) {
+    $("#idVentas1").bind("click", function (event, ui) {
           $('#idCalculoUtilidad').css('display', 'block');
           $('#content_cyc').css('display', 'none');
           $('#content_ventas').css('display', 'none');
       });
 
-  $("#btnBusqArt").bind("click", function (event, ui) {
+    $("#btnBusqArt").bind("click", function (event, ui) {
         var Codigo = $("#txtItemCode").val();
         if (Publi == 1) {
             $.mobile.loading('show', {
@@ -35,6 +35,19 @@ $(document).ready(function () {
             });
         }
         VerificaDescripcionArticulo(Codigo);
+    });
+    
+    $("#btnGetUtilidad").bind("click", function (event, ui) {
+        var Codigo = $("#txtItemCode").val();
+        alert(Codigo);
+        if (Publi == 1) {
+            $.mobile.loading('show', {
+                text: 'Consultando...',
+                textVisible: true,
+                theme: 'a',
+                html: ""
+            });
+        }
     });
 });
 
