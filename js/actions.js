@@ -39,7 +39,20 @@ $(document).ready(function () {
     
     $("#btnGetUtilidad").bind("click", function (event, ui) {
         var Codigo = $("#txtItemCode").val();
-        alert(Codigo);
+        alert("Utilidad");
+        if (Publi == 1) {
+            $.mobile.loading('show', {
+                text: 'Consultando...',
+                textVisible: true,
+                theme: 'a',
+                html: ""
+            });
+        }
+    });
+    
+    $("#btnGetPrecio").bind("click", function (event, ui) {
+        var Codigo = $("#txtItemCode").val();
+        alert("Precio");
         if (Publi == 1) {
             $.mobile.loading('show', {
                 text: 'Consultando...',
