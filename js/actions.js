@@ -1,4 +1,4 @@
-var urlDOM = "http://187.237.98.114:80/"; var Publi = 0;
+var urlDOM = "http://187.237.98.114:80/"; var Publi = 1;
 
 $(document).ready(function () {
 
