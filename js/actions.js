@@ -74,10 +74,9 @@ $(document).ready(function () {
                             data: "{ TipoConsulta: " + TipoConsulta + ", CodArticulo: '" + code + "'" + ", TipoMoneda: " + TipoMoneda + ", Monto: '" + mon + "'}",
                             dataType: "json",
                             type: "POST",
-                            contentType: "application/json; charset=utf-8",
-                            dataType: "json",
-                            success: function (data) {
-                                $("#txtUtilidad").val(data.d);
+                            contentType: "application/json",
+                            success: function (response) {
+                                $("#txtUtilidad").val(response.d);
                                 if (Publi == 1) {
                                     $.mobile.loading('hide');
                                 }
@@ -90,7 +89,6 @@ $(document).ready(function () {
             else {
                 Mensaje("Debe especificar un monto", "HalcoNET", "Aceptar");
             }
-
         }
         else {
             Mensaje("Ingrese un código de artículo", "HalcoNET", "Aceptar");
