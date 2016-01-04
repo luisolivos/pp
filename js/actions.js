@@ -1,27 +1,39 @@
 var urlDOM = "http://187.237.98.114:80/"; var Publi = 1;
 
 $(document).ready(function () {
+    $('#content_cyc').css('display', 'none');
+    $('#content_ventas').css('display', 'none');
+    $('#idCalculoUtilidad').css('display', 'none');  
+    $('#idDesctoMaximo').css('display', 'none');
 
-  $('#content_cyc').css('display', 'none');
-  $('#content_ventas').css('display', 'none');
-  $('#idCalculoUtilidad').css('display', 'none');
 		
     $("#id_mVentas").bind("click", function (event, ui) {
-          $('#content_ventas').css('display', 'block');
-          $('#content_cyc').css('display', 'none');
-          $('#idCalculoUtilidad').css('display', 'none');
+        $('#content_ventas').css('display', 'block');
+        $('#content_cyc').css('display', 'none');
+        $('#idCalculoUtilidad').css('display', 'none');
+        $('#idDesctoMaximo').css('display', 'none');
     	});
 
 	$("#id_mCYC").bind("click", function (event, ui) {
-	 	      $('#content_cyc').css('display', 'block');
-          $('#content_ventas').css('display', 'none');
-          $('#idCalculoUtilidad').css('display', 'none');
+	 	$('#content_cyc').css('display', 'block');
+        $('#content_ventas').css('display', 'none');
+        $('#idCalculoUtilidad').css('display', 'none');
+        $('#idDesctoMaximo').css('display', 'none');
+
     	});
 
     $("#idVentas1").bind("click", function (event, ui) {
-          $('#idCalculoUtilidad').css('display', 'block');
-          $('#content_cyc').css('display', 'none');
-          $('#content_ventas').css('display', 'none');
+        $('#idCalculoUtilidad').css('display', 'block');
+        $('#content_cyc').css('display', 'none');
+        $('#content_ventas').css('display', 'none');
+        $('#idDesctoMaximo').css('display', 'none');
+      });
+    
+    $("#idVentas2").bind("click", function (event, ui) {
+        $('#idCalculoUtilidad').css('display', 'none');
+        $('#content_cyc').css('display', 'none');
+        $('#content_ventas').css('display', 'none');
+        $('#idDesctoMaximo').css('display', 'block');
       });
 
     $("#btnBusqArt").bind("click", function (event, ui) {
@@ -144,6 +156,55 @@ $(document).ready(function () {
         }
         else {
             Mensaje("Debe ingresar un código de artículo", "HalcoNET", "Aceptar");
+        }
+    });
+    
+    /*Descuento maximo*/
+    $("#btnCalcular").bind("click", function (event, ui) {
+        var CodORNom = "";
+        CodORNom = $("#txtItemCode1").val();
+        
+        if (CodORNom != "") {
+            var mon = $("#txtPorcientoDesc").val();
+            if (mon != "") {
+                var code = $("#txtItemCode1").val();
+                var TipoConsulta = 11;
+                if (mon != "") {
+                    if (Publi == 1) {
+                        $.mobile.loading('show', {
+                            text: 'Calculando...',
+                            textVisible: true,
+                            theme: 'a',
+                            html: ""
+                        });
+                    }
+                    //Se llenan campos con precios de descuento y utilidades
+                    $.ajax({
+                        url: urlDOM + "CS.aspx/ObtenerDescuentos",
+                        data: "{ TipoConsulta: " + TipoConsulta + ", CodArticulo: '" + code + "', Descuento:" + mon +"}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (data) {
+                            $("#txtPrecioDescuentoMXP").val(data.d.PrecioCompraMXP);
+                            $("#txtUtilidadDescuentoMXP").val(data.d.PrecionVentaMXP);
+                            $("#txtPrecioDescuentoUSD").val(data.d.PrecioCompraUSD);
+                            $("#txtUtilidadDescuentoUSD").val(data.d.PrecionVentaUSD);
+
+                            if (Publi == 1) {
+                                $.mobile.loading('hide');
+                            }
+                        }
+                    });
+                }
+            }
+            else {
+                Mensaje("Debe especificar un monto para la utilidad", "HalcoNET", "Aceptar");
+            }
+        }
+        else {
+            Mensaje("Debe consultar un articulo por código", "HalcoNET", "Aceptar");
         }
     });
 });

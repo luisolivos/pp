@@ -147,7 +147,6 @@
                 <div class="x_content" id = "idCalculoUtilidad">
                     <div class="bs-docs-section">
                         <div class="bs-glyphicons">
-
                                 <div class="x_panel">
                                     <div class = "x_title">
                                         <h2>Cálculo de utilidad</h2>
@@ -169,8 +168,7 @@
                                             </span>
                                         </div>
                                         
-                                         <label id = "lblItemName1">
-                                        </label>
+                                         <label id = "lblItemName1"> </label>
 
                                         <label>
                                             <input id="rbtPesos" name="R1" title="Pesos" type="radio" checked="checked" value="V1" /> Pesos 
@@ -200,6 +198,74 @@
                                     </div>
                                 </div>  
                             
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="x_content" id = "idDesctoMaximo">
+                    <div class="bs-docs-section">
+                        <div class="bs-glyphicons">
+                            <div class="x_panel">
+                                <div class = "x_title">
+                                    <h2>Descuento máximo</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <label for="textinput-f">Artículo:</label>   
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder = "Código de árticulo" id = "txtItemCode1">
+                                        <!--<span class="input-group-btn">
+                                            <button type="button" class="btn btn-primary" id = "btnBusqArt1">
+                                                <i class="fa fa-search"></i> Ir
+                                            </button> 
+                                            <button type="button" class="btn btn-primary" id = "btnLimpArt1">
+                                                <i class="fa fa-trash-o"></i> Limpiar
+                                            </button> 
+                                        </span>-->
+                                    </div>
+                                    
+                                    <label for="textinput-f">% de Descuento:</label> 
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder = "%" id = "txtPorcientoDesc">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-primary" id = "btnCalcular">
+                                                <i class="fa fa-calculator"></i> Calcular
+                                            </button> 
+                                        </span>
+                                    </div>
+                                    
+                                    <label for="textinput-f"></label>    
+
+                                    <div id="Div6" class="ui-grid-b">
+                                        <div id="Div7" class="ui-block-a" style="width:50%;">
+                                            <label>Precio MXP($):
+                                                <input type="text" class="form-control" id="txtPrecioDescuentoMXP" readonly="true"/>        
+                                            </label>   
+                                        </div>
+
+                                        <div id="Div8" class="ui-block-b" style="width:50%;">
+                                            <label>Utilidad (%) MXP:
+                                                <input type="text" class="form-control" id="txtUtilidadDescuentoMXP" readonly="true"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="Div9" class="ui-grid-b">
+                                    <div id="Div10" class="ui-block-a" style="width:50%;">
+                                        <label>Precio USD($):
+                                            <input type="text" class="form-control" id="txtPrecioDescuentoUSD" readonly="true"/>        
+                                        </label>   
+                                    </div>
+
+                                    <div id="Div11" class="ui-block-b" style="width:50%;">
+                                        <label>Utilidad (%) USD:
+                                            <input type="text" class="form-control" id="txtUtilidadDescuentoUSD" readonly="true"/>
+                                        </label>
+                                    </div>
+                                </div>
+                                    <!----------------- ->
+                                </div>
+                            </div>  
                         </div>
                     </div>
                 </div>
