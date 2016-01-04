@@ -9,10 +9,10 @@
 
         <preference name="phonegap-version" value="3.7.0" />
 
-        <name>Halconet beta</name>
+        <name>Halconet prueba</name>
 
         <description>
-            Beta 
+            prueba
         </description>
 
         <author href="http://yoursite.com" email="you@youremail.com">
